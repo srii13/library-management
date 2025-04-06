@@ -8,7 +8,7 @@ struct Book {
     char author[100];
 };
 
-// Function declarations
+
 void addBook();
 void displayBooks();
 void searchBook();
@@ -40,17 +40,17 @@ int main() {
     return 0;
 }
 
-// Function to add a book
+
 void addBook() {
     FILE *fp = fopen("library.txt", "a");
     struct Book b;
 
     printf("Enter Book ID: ");
     scanf("%d", &b.id);
-    getchar(); // consume newline character
+    getchar(); 
     printf("Enter Book Title: ");
     fgets(b.title, 100, stdin);
-    b.title[strcspn(b.title, "\n")] = '\0'; // remove newline
+    b.title[strcspn(b.title, "\n")] = '\0'; 
     printf("Enter Author Name: ");
     fgets(b.author, 100, stdin);
     b.author[strcspn(b.author, "\n")] = '\0';
@@ -61,7 +61,7 @@ void addBook() {
     printf("Book added successfully!\n");
 }
 
-// Function to display all books
+
 void displayBooks() {
     FILE *fp = fopen("library.txt", "r");
     struct Book b;
@@ -79,7 +79,7 @@ void displayBooks() {
     fclose(fp);
 }
 
-// Function to search for a book by ID
+
 void searchBook() {
     FILE *fp = fopen("library.txt", "r");
     struct Book b;
@@ -108,7 +108,7 @@ void searchBook() {
     fclose(fp);
 }
 
-// Function to delete a book by ID
+
 void deleteBook() {
     FILE *fp = fopen("library.txt", "r");
     FILE *temp = fopen("temp.txt", "w");
